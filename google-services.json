@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "980069873476",
+    "project_id": "aidup-76854",
+    "storage_bucket": "aidup-76854.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980069873476:android:c1c3a62d374ce62aba4911",
+        "android_client_info": {
+          "package_name": "com.harsh1234.AidUp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980069873476-bnksaahub81mnu49nirlmmgc69l17mk5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.harsh1234.AidUp",
+            "certificate_hash": "9b4f4b36e819cb609f7b908351dd534992614f07"
+          }
+        },
+        {
+          "client_id": "980069873476-uhf1v1ru3t7bbpat3qd5gl54ijhs8non.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBv0Z_shswA5VOk0JXXMcVe5DFFzoFpMTs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "980069873476-uhf1v1ru3t7bbpat3qd5gl54ijhs8non.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

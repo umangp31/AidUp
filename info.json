@@ -1,0 +1,33 @@
+[
+    {
+      "imgLink": "https://d112y698adiu2z.cloudfront.net/photos/production/software_thumbnail_photos/002/136/502/datas/medium.png",
+      "theme":"Blockchain",
+      "projectName": "MetaMusic",
+      "likes": "441k",
+      "description": "Decentralized music streaming",
+      "projectDetails": "What it does:Metamusic solves security or privacy problem using blockchain. It helps artist to mint their songs and deploy it on IPFS. Also, They can mint music along with album photo on our web-app and it will automatically mint on Opensea. It is solving server to client architecture using peer to peer network. All the NFT's are stored on blockchain. Any l listner can send tip to the owner of the song without any need of middle man or server.How we built it:First of all we created contract in solidity and test it after that we moved to the next part NFT storage. The last part of that is we have connected frontend to the our smart contract using ethers.jsChallenges we ran intoconnecting decentralized storage with blockchain. To overcome this problem we used filecoin's NFT.storage to store our metadata. Connecting blockchain to the Frontend was hard part of this project. Using ethers.js and some advance react knowledge after through google we solved that.Accomplishments that we're proud of In just couple of seconds after minting data stored to IPFS and also on blockchain. User can see their nft on opensea in couple of seconds after minting.What we learnedwe learned about how web3 and blockchain works and how we can use it in projects. we also learned about how to connect our app to blockchain and frontend.What's next for MetaMusic we are trying add royalties support for every NFT in future. we are thinking about to add live stream which will runs on blockchain with low latency.",
+      "fundingDetails": "$65K in seed funding round",
+      "techStack": "alchemyapi,ether.js,ethereum,filecoin,ipfs,nft,polygon,react,solidity,tailwind,zustand"
+    },
+    {
+      "imgLink": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.ByYX6uuxtNiMRXEG7NtJHQHaEK%26pid%3DApi&f=1&ipt=8873e24ffb3173811e968bcc59910f46c1eaa726628f0a944a4563ad65027075&ipo=images",
+      "theme":"Mechanical",
+      "projectName": "Prostetic Arm",
+      "likes": "232k",
+      "description": "Low Cost Prostetic arm",
+      "projectDetails": "What it does:Metamusic solves security or privacy problem using blockchain. It helps artist to mint their songs and deploy it on IPFS. Also, They can mint music along with album photo on our web-app and it will automatically mint on Opensea. It is solving server to client architecture using peer to peer network. All the NFT's are stored on blockchain. Any l listner can send tip to the owner of the song without any need of middle man or server.How we built it:First of all we created contract in solidity and test it after that we moved to the next part NFT storage. The last part of that is we have connected frontend to the our smart contract using ethers.jsChallenges we ran intoconnecting decentralized storage with blockchain. To overcome this problem we used filecoin's NFT.storage to store our metadata. Connecting blockchain to the Frontend was hard part of this project. Using ethers.js and some advance react knowledge after through google we solved that.Accomplishments that we're proud of In just couple of seconds after minting data stored to IPFS and also on blockchain. User can see their nft on opensea in couple of seconds after minting.What we learnedwe learned about how web3 and blockchain works and how we can use it in projects. we also learned about how to connect our app to blockchain and frontend.What's next for MetaMusic we are trying add royalties support for every NFT in future. we are thinking about to add live stream which will runs on blockchain with low latency.",
+      "fundingDetails": "$65K in seed funding round",
+      "techStack": "alchemyapi,ether.js,ethereum,filecoin,ipfs,nft,polygon,react,solidity,tailwind,zustand"
+    },
+    {
+      "imgLink": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.ByYX6uuxtNiMRXEG7NtJHQHaEK%26pid%3DApi&f=1&ipt=8873e24ffb3173811e968bcc59910f46c1eaa726628f0a944a4563ad65027075&ipo=images",
+      "theme":"Blockchain",
+      "projectName": "RECENT LAUNCH",
+      "likes": "STARLINK MISSION",
+      "description": "REdescription",
+      "projectDetails": "What it does:Metamusic solves security or privacy problem using blockchain. It helps artist to mint their songs and deploy it on IPFS. Also, They can mint music along with album photo on our web-app and it will automatically mint on Opensea. It is solving server to client architecture using peer to peer network. All the NFT's are stored on blockchain. Any l listner can send tip to the owner of the song without any need of middle man or server.How we built it:First of all we created contract in solidity and test it after that we moved to the next part NFT storage. The last part of that is we have connected frontend to the our smart contract using ethers.jsChallenges we ran intoconnecting decentralized storage with blockchain. To overcome this problem we used filecoin's NFT.storage to store our metadata. Connecting blockchain to the Frontend was hard part of this project. Using ethers.js and some advance react knowledge after through google we solved that.Accomplishments that we're proud of In just couple of seconds after minting data stored to IPFS and also on blockchain. User can see their nft on opensea in couple of seconds after minting.What we learnedwe learned about how web3 and blockchain works and how we can use it in projects. we also learned about how to connect our app to blockchain and frontend.What's next for MetaMusic we are trying add royalties support for every NFT in future. we are thinking about to add live stream which will runs on blockchain with low latency.",
+      "fundingDetails": "$65K in seed funding round",
+      "techStack": "alchemyapi,ether.js,ethereum,filecoin,ipfs,nft,polygon,react,solidity,tailwind,zustand"
+    }
+  ]
+  

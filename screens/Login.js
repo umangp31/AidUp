@@ -12,10 +12,13 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import React from "react";
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import { useState } from "react";
+import { useProfile } from "../store/store";
 const Login = () => {
+  const navigation = useNavigation();
   const width = Dimensions.get("screen").width;
   const height = Dimensions.get("screen").height;
   const [user, setuser] = useState(null);
+  const { currentProfile, setCurrentProfile } = useProfile();
   GoogleSignin.configure({
     webClientId:
       "980069873476-uhf1v1ru3t7bbpat3qd5gl54ijhs8non.apps.googleusercontent.com",
@@ -23,17 +26,18 @@ const Login = () => {
 
   async function onGoogleButtonPress() {
     // Check if your device supports Google Play
-    await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+    const success=await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+    if(success){
+      const data = await GoogleSignin.signIn();
+      setCurrentProfile(data);
+      navigation.navigate("Home");
+    }
+    else{
+      console.log('kuch to galat he buddy');
+    }
     // Get the users ID token
-    const data = await GoogleSignin.signIn();
-    navigation.navigate("Home");
-    // Create a Google credential with the token
-    // const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-    console.log(data);
-    // Sign-in the user with the credential
-    // return auth().signInWithCredential(googleCredential);
+    // return data
   }
-  const navigation = useNavigation();
 
   return (
     <SafeAreaView

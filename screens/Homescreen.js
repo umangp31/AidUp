@@ -8,7 +8,7 @@ import {
   TextInput,
   View,
 } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { Entypo } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { EvilIcons } from "@expo/vector-icons";
@@ -17,13 +17,15 @@ import ProjectCategories from "../components/ProjectCategories";
 import FeaturedProjects from "../components/FeaturedProjects";
 import FeaturedPro2 from "../components/FeaturedPro2";
 import { useProfile } from "../store/store";
-
+// import firestore from '@react-native-firebase/firestore'
 const Homescreen = () => {
-  const {currentProfile,setCurrentProfile}=useProfile()
-  const profileAvatar=currentProfile?.user?.photo
-  const profileName=currentProfile?.user?.name
+  
+  const { currentProfile, setCurrentProfile } = useProfile();
+  const profileAvatar = currentProfile?.user?.photo;
+  const profileName = currentProfile?.user?.name;
+  // console.log("this is projectt: ", projectCategoryDoc);
   return (
-    <SafeAreaView style={{backgroundColor:"#f4f3ee",flex:1}} >
+    <SafeAreaView style={{ backgroundColor: "#f4f3ee", flex: 1 }}>
       <StatusBar barStyle="dark-content" backgroundColor={"transparent"} />
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Header  */}
@@ -42,7 +44,7 @@ const Homescreen = () => {
           <View
             style={{
               flex: 1,
-              marginVertical:8
+              marginVertical: 8,
             }}
           >
             <Text style={{ fontSize: 20, color: "gray" }}>
@@ -51,7 +53,7 @@ const Homescreen = () => {
           </View>
           <View style={{ alignItems: "center" }}>
             <Image
-              source={{uri:profileAvatar}}
+              source={{ uri: profileAvatar }}
               style={{
                 height: 36,
                 width: 36,
@@ -66,7 +68,7 @@ const Homescreen = () => {
         </View>
 
         {/* Search */}
- 
+
         <View
           style={{
             flexDirection: "row",
@@ -106,8 +108,8 @@ const Homescreen = () => {
           {/* Category */}
           <ProjectCategories />
           {/* Featured Row */}
-          <FeaturedProjects/>
-          <FeaturedPro2/>
+          <FeaturedProjects />
+          <FeaturedPro2 />
         </ScrollView>
       </ScrollView>
     </SafeAreaView>

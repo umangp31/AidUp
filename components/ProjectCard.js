@@ -3,9 +3,9 @@ import React from "react";
 import { EvilIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import data from '../data.json'
-const ProjectCard = ({imgLink,projectName,likes,theme,description,projectDetails,techStack,fundingDetails}) => {
+const ProjectCard = ({ projectImgLink,projectName,shortDescription,likeCount,projectCategory}) => {
   const navigation = useNavigation();
-    console.log(fundingDetails);
+    // console.log(fundingDetails);
   return (
     <TouchableOpacity
       onPress={() => {
@@ -35,7 +35,7 @@ const ProjectCard = ({imgLink,projectName,likes,theme,description,projectDetails
           resizeMode: "cover",
           backgroundColor: "#e5e5e5",
         }}
-        source={{uri:`${imgLink}`}}
+        source={{uri:`${projectImgLink}`}}
       />
       <View
         style={{ paddingHorizontal: 6, paddingBottom: 8 }}
@@ -57,22 +57,22 @@ const ProjectCard = ({imgLink,projectName,likes,theme,description,projectDetails
             className="text-xs text-gray-500"
           >
             <Text style={{ color: "#ced4da" }} className="text-green-500">
-              {likes}
+              {likeCount}
             </Text>{" "}
-             {theme}
+             {projectCategory}
           </Text>
         </View>
 
         <View
-          style={{ flexDirection: "row", alignItems: "center" }}
+          style={{ flexDirection: "row", alignItems: "center"}}
           className="flex-row items-center space-x-1"
         >
           <EvilIcons name="tag" size={24} color="black" />
           <Text
-            style={{ fontSize: 12, color: "#ced4da" }}
-            className={`text-xs text-gray-500  `}
+            style={{ fontSize: 12, color: "#ced4da",width:204}}
+            className={`text-xs text-gray-500 `}
           >
-            {description}
+            {shortDescription}
           </Text>
         </View>
       </View>

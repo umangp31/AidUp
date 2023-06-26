@@ -1,7 +1,8 @@
 import { Image, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 
-const CategoryCard = ({imgLink,theme}) => {
+const CategoryCard = ({imgLink,name}) => {
+  
   return (
     <TouchableOpacity style={{ marginRight: 6, position: "relative" }}>
       <View>
@@ -26,7 +27,7 @@ const CategoryCard = ({imgLink,theme}) => {
           alignSelf: "center",
         }}
       >
-        {theme}
+        {name}
       </Text>
     </TouchableOpacity>
   );

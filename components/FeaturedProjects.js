@@ -1,10 +1,33 @@
 import { StyleSheet, Text, View, ScrollView } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import ProjectCard from "./ProjectCard";
 import data from '../data.json'
+import firestore from "@react-native-firebase/firestore";
+
 
 const FeaturedProjects = () => {
+  const [RowInfo, setRowInfo] = useState()
+  const featuredRowsDoc = async () => {
+    console.log("ggwp");
+    try {
+      const featuredRowData = await firestore().collection("featuredRows").doc('7enxhnFFZnuMn08tq2Nt').collection('projectCard').get();
+      // await firestore().collection('test').add({roll:33}).then(res=>{console.log(res);})
+      // const ref = firestore().collection('test');
+      // console.log("hhh",ref)
+      console.log('mere doc',featuredRowData.docs);
+      // const info=data.docs
+      // console.log(data.docs[0]?.data());
+      setRowInfo(featuredRowData.docs);
+      // console.log('bored',featuredRowData.docs[0])
+    } catch (error) {
+      console.log("this is err:  ", error);
+    }
+  };
+  useEffect(() => {
+    featuredRowsDoc()
+  }, [])
+  
   return (
     <View>
       <View
@@ -38,14 +61,14 @@ const FeaturedProjects = () => {
         className="pt-4"
         style={{ paddingTop: 8 }}
       >
-        {data.map((item, index) => {
+        {RowInfo && RowInfo.map((item, index) => {
           return (
             <ProjectCard
-              imgLink={item.imgLink}
-              projectName={item.projectName}
-              description={item.description}
-              likes={item.likes}
-              theme={item.theme}
+              projectImgLink={item._data.projectImgLink}
+              projectName={item._data.projectName}
+              shortDescription={item._data.shortDescription}
+              likeCount={item._data.likeCount}
+              projectCategory={item._data.projectCategory}
             />
           );
         })}

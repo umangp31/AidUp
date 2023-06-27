@@ -11,7 +11,7 @@ const CategoryCard = ({imgLink,name}) => {
           style={{
             height: 84,
             width: 96,
-            resizeMode: "contain",
+            resizeMode: "cover",
             borderRadius: 4,
             backgroundColor: "#ced4da",
           }}
@@ -20,11 +20,15 @@ const CategoryCard = ({imgLink,name}) => {
       <Text
         style={{
           position: "absolute",
-          bottom: 4,
+          bottom: 0,
           color: "black",
           fontWeight: "500",
           textAlign: "center",
           alignSelf: "center",
+          backgroundColor:"#e5e5e5",
+          width:"100%",
+          borderBottomLeftRadius:4,
+          borderBottomRightRadius:4,
         }}
       >
         {name}

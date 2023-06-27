@@ -2,32 +2,39 @@ import { StyleSheet, Text, View, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import ProjectCard from "./ProjectCard";
-import data from '../data.json'
+import data from "../data.json";
 import firestore from "@react-native-firebase/firestore";
 
-
 const FeaturedProjects = () => {
-  const [RowInfo, setRowInfo] = useState()
-  const featuredRowsDoc = async () => {
-    console.log("ggwp");
+  const [topBided, setTopBided] = useState();
+  const [topLiked, setTopLiked] = useState();
+  const [trending, setTrending] = useState();
+  const getTopBided = async () => {
     try {
-      const featuredRowData = await firestore().collection("featuredRows").doc('7enxhnFFZnuMn08tq2Nt').collection('projectCard').get();
-      // await firestore().collection('test').add({roll:33}).then(res=>{console.log(res);})
-      // const ref = firestore().collection('test');
-      // console.log("hhh",ref)
-      console.log('mere doc',featuredRowData.docs);
-      // const info=data.docs
-      // console.log(data.docs[0]?.data());
-      setRowInfo(featuredRowData.docs);
-      // console.log('bored',featuredRowData.docs[0])
-    } catch (error) {
-      console.log("this is err:  ", error);
-    }
+      const topBidesp = await firestore().collection("Top Bided").get();
+      console.log(topBidesp.docs);
+      setTopBided(topBidesp.docs);
+    } catch (error) {}
   };
+  const getTopLiked = async () => {
+    try {
+      const topLiked = await firestore().collection("Most Liked").get();
+      setTopLiked(topLiked.docs);
+    } catch (error) {}
+  };
+  const getTrending = async () => {
+    try {
+      const trending = await firestore().collection("TrendingWeek").get();
+      setTrending(trending.docs);
+    } catch (error) {}
+  };
+
   useEffect(() => {
-    featuredRowsDoc()
-  }, [])
-  
+    getTopBided();
+    getTopLiked();
+    getTrending()
+  }, []);
+
   return (
     <View>
       <View
@@ -61,22 +68,115 @@ const FeaturedProjects = () => {
         className="pt-4"
         style={{ paddingTop: 8 }}
       >
-        {RowInfo && RowInfo.map((item, index) => {
-          return (
-            <ProjectCard
-              projectImgLink={item._data.projectImgLink}
-              projectName={item._data.projectName}
-              shortDescription={item._data.shortDescription}
-              likeCount={item._data.likeCount}
-              projectCategory={item._data.projectCategory}
-            />
-          );
-        })}
+        {topBided &&
+          topBided.map((item) => {
+            console.log(item.id);
+            return (
+              <ProjectCard
+                key={item.id}
+                projectImgLink={item._data.projectImgLink}
+                projectName={item._data.projectName}
+                shortDescription={item._data.shortDescription}
+                likeCount={item._data.likeCount}
+                projectCategory={item._data.projectCategory}
+              />
+            );
+          })}
+      </ScrollView>
+      <View
+        style={{
+          marginTop: 16,
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          paddingHorizontal: 6,
+        }}
+      >
+        <Text
+          style={{
+            fontWeight: "600",
+            fontSize: 24,
+          }}
+        >
+          Top Liked
+        </Text>
+        <AntDesign name="arrowright" size={24} color="#00CCBB" />
+      </View>
+      <Text style={{ fontSize: 12, color: "gray", paddingHorizontal: 8 }}>
+        Projects which are Liked highest
+      </Text>
+      <ScrollView
+        horizontal
+        contentContainerStyle={{
+          paddingHorizontal: 8,
+        }}
+        showsHorizontalScrollIndicator={false}
+        className="pt-4"
+        style={{ paddingTop: 8 }}
+      >
+        {topLiked &&
+          topLiked.map((item) => {
+            console.log(item.id);
+            return (
+              <ProjectCard
+                key={item.id}
+                projectImgLink={item._data.projectImgLink}
+                projectName={item._data.projectName}
+                shortDescription={item._data.shortDescription}
+                likeCount={item._data.likeCount}
+                projectCategory={item._data.projectCategory}
+              />
+            );
+          })}
+      </ScrollView>
+      <View
+        style={{
+          marginTop: 16,
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          paddingHorizontal: 6,
+        }}
+      >
+        <Text
+          style={{
+            fontWeight: "600",
+            fontSize: 24,
+          }}
+        >
+          Trendingg this week
+        </Text>
+        <AntDesign name="arrowright" size={24} color="#00CCBB" />
+      </View>
+      <Text style={{ fontSize: 12, color: "gray", paddingHorizontal: 8 }}>
+        Projects which are Liked highest
+      </Text>
+      <ScrollView
+        horizontal
+        contentContainerStyle={{
+          paddingHorizontal: 8,
+        }}
+        showsHorizontalScrollIndicator={false}
+        className="pt-4"
+        style={{ paddingTop: 8 }}
+      >
+        {trending&&
+          trending.map((item) => {
+            console.log(item.id);
+            return (
+              <ProjectCard
+                key={item.id}
+                projectImgLink={item._data.projectImgLink}
+                projectName={item._data.projectName}
+                shortDescription={item._data.shortDescription}
+                likeCount={item._data.likeCount}
+                projectCategory={item._data.projectCategory}
+              />
+            );
+          })}
       </ScrollView>
     </View>
   );
 };
 
 export default FeaturedProjects;
-
-const styles = StyleSheet.create({});

@@ -9,23 +9,35 @@ import {
 } from "react-native";
 import React from "react";
 
-const ProjectScreen = ({
-  imgLink,
-  projectName,
-  likes,
-  theme,
-  description,
-  projectDetails,
-  techStack,
-//   fundingDetails
-}) => {
-    console.log("logg",imgLink);
+const ProjectScreen = () => {
+  const {
+    params: {
+      id,
+      title,
+      short_description,
+      imgUrl,
+      long,
+      lat,
+      address,
+      area,
+      rating,
+      type,
+      dishes,
+      genre,
+    },
+  } = useRoute();
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: false,
+    });
+  }, []);
+  console.log("logg", projectImgLink);
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#e5e5e5" }}>
       <ScrollView style={{ margin: 8 }}>
         <View>
           <Image
-            source={{ uri: `${imgLink}` }}
+            source={{ uri: `${projectImgLink}` }}
             style={{
               height: 400,
               width: "100%",
@@ -33,9 +45,14 @@ const ProjectScreen = ({
             }}
           />
         </View>
-        <View style={{flexDirection:"row"}} >
-            <Text style={{fontWeight:"600",color:"#ced4da"}} >Funding Raised</Text>
-            <Text style={{color:"#161a1d"}} >{fundingDetails}</Text>
+        <View style={{ flexDirection: "row" }}>
+          <Text style={{ fontWeight: "600", color: "#ced4da" }}>
+            Funding Raised
+          </Text>
+          <Text style={{ color: "#161a1d" }}>
+            {/* {fundingDetails} */}
+            hiiiiii
+          </Text>
         </View>
         <View>
           <Pressable
@@ -55,9 +72,17 @@ const ProjectScreen = ({
           </Pressable>
         </View>
         <View>
-            <Text style={{fontSize:36,fontWeight:"700"}} >Project Details</Text>
-            <Text>{projectDetails}</Text>
-            <Text>{techStack}</Text>
+          <Text style={{ fontSize: 36, fontWeight: "700" }}>
+            Project Details
+          </Text>
+          <Text>
+            {/* {projectDetails} */}
+            hellooo
+          </Text>
+          <Text>
+            byeeee
+            {/* {techStack} */}
+          </Text>
         </View>
       </ScrollView>
     </SafeAreaView>

@@ -2,29 +2,33 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import React from "react";
 import { EvilIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import data from '../data.json'
-const ProjectCard = ({ projectImgLink,projectName,shortDescription,likeCount,projectCategory}) => {
+import data from "../data.json";
+const ProjectCard = ({
+  projectImgLink,
+  projectName,
+  shortDescription,
+  likeCount,
+  projectCategory,
+}) => {
   const navigation = useNavigation();
-    // console.log(fundingDetails);
+  // console.log(fundingDetails);
   return (
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate("Project",{
-            imgLink,
-            projectName,
-            likes,
-            theme,
-            description,
-            projectDetails,
-            techStack,
-            fundingDetails,
+        navigation.navigate("ProjectCard", {
+          projectImgLink,
+          projectName,
+          shortDescription,
+          likeCount,
+          projectCategory,
         });
       }}
       className="bg-white mr-3 shadow"
       style={{
         marginRight: 6,
         shadowColor: "black",
-        backgroundColor: "#fff",
+        backgroundColor: "#e9ecef",
+        borderRadius: 4,
       }}
     >
       <Image
@@ -35,7 +39,7 @@ const ProjectCard = ({ projectImgLink,projectName,shortDescription,likeCount,pro
           resizeMode: "cover",
           backgroundColor: "#e5e5e5",
         }}
-        source={{uri:`${projectImgLink}`}}
+        source={{ uri: `${projectImgLink}` }}
       />
       <View
         style={{ paddingHorizontal: 6, paddingBottom: 8 }}
@@ -53,23 +57,24 @@ const ProjectCard = ({ projectImgLink,projectName,shortDescription,likeCount,pro
         >
           <EvilIcons name="heart" size={24} color="black" />
           <Text
-            style={{ fontSize: 12, color: "#e5e5e5" }}
+            style={{ fontSize: 12, color: "#adb5bd" }}
             className="text-xs text-gray-500"
           >
-            <Text style={{ color: "#ced4da" }} className="text-green-500">
+            <Text style={{ color: "#adb5bd" }} className="text-green-500">
               {likeCount}
             </Text>{" "}
-             {projectCategory}
+            {projectCategory}
           </Text>
         </View>
 
         <View
-          style={{ flexDirection: "row", alignItems: "center"}}
+          style={{ flexDirection: "row", alignItems: "center" }}
           className="flex-row items-center space-x-1"
         >
           <EvilIcons name="tag" size={24} color="black" />
           <Text
-            style={{ fontSize: 12, color: "#ced4da",width:204}}
+            numberOfLines={1}
+            style={{ fontSize: 12, color: "#adb5bd", width: 204 }}
             className={`text-xs text-gray-500 `}
           >
             {shortDescription}

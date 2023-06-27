@@ -25,7 +25,7 @@ const Homescreen = () => {
   const profileName = currentProfile?.user?.name;
   // console.log("this is projectt: ", projectCategoryDoc);
   return (
-    <SafeAreaView style={{ backgroundColor: "#f4f3ee", flex: 1 }}>
+    <SafeAreaView style={{ backgroundColor: "#f8f9fa", flex: 1 }}>
       <StatusBar barStyle="dark-content" backgroundColor={"transparent"} />
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Header  */}
@@ -109,7 +109,7 @@ const Homescreen = () => {
           <ProjectCategories />
           {/* Featured Row */}
           <FeaturedProjects />
-          <FeaturedPro2 />
+          {/* <FeaturedPro2 /> */}
         </ScrollView>
       </ScrollView>
     </SafeAreaView>

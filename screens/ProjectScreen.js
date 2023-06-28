@@ -1,5 +1,7 @@
 import {
+  Dimensions,
   Image,
+  Linking,
   Pressable,
   SafeAreaView,
   ScrollView,
@@ -7,23 +9,23 @@ import {
   Text,
   View,
 } from "react-native";
-import React from "react";
+import React, { useLayoutEffect } from "react";
+import { Link, useRoute } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 
 const ProjectScreen = () => {
+  const calendly_site="https://calendly.com/umang31/30min"
+  const navigation = useNavigation();
   const {
     params: {
-      id,
-      title,
-      short_description,
-      imgUrl,
-      long,
-      lat,
-      address,
-      area,
-      rating,
-      type,
-      dishes,
-      genre,
+      projectImgLink,
+      projectName,
+      shortDescription,
+      likeCount,
+      projectCategory,
+      projectDetails,
+      fundingDetails,
+      techStack,
     },
   } = useRoute();
   useLayoutEffect(() => {
@@ -31,58 +33,72 @@ const ProjectScreen = () => {
       headerShown: false,
     });
   }, []);
-  console.log("logg", projectImgLink);
+  console.log("logg", techStack);
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#e5e5e5" }}>
-      <ScrollView style={{ margin: 8 }}>
-        <View>
+    <SafeAreaView
+      style={{ flex: 1, backgroundColor: "#ced4da", position: "relative" }}
+    >
+      <ScrollView showsVerticalScrollIndicator={false}
+        style={{ flex: 1, position: "relative", marginHorizontal: 6 }}
+      >
+        <View style={{ position: "relative" }}>
           <Image
             source={{ uri: `${projectImgLink}` }}
             style={{
-              height: 400,
+              height: 250,
               width: "100%",
-              resizeMode: "contain",
+              resizeMode: "cover",
+              position: "relative",
             }}
           />
         </View>
-        <View style={{ flexDirection: "row" }}>
-          <Text style={{ fontWeight: "600", color: "#ced4da" }}>
+        <Text style={{ fontSize: 34, fontWeight: "700" }}>{projectName}</Text>
+        <View style={{ flexDirection: "row", margin: 4,paddingVertical:4 }}>
+          <Text style={{ fontWeight: "600", color: "#adb5bd",fontSize:20 }}>
             Funding Raised
           </Text>
-          <Text style={{ color: "#161a1d" }}>
-            {/* {fundingDetails} */}
-            hiiiiii
+          <Text style={{ color: "#161a1d",fontSize:20 }}>
+            {":"} {fundingDetails}
           </Text>
         </View>
         <View>
           <Pressable
+          onPress={()=>{
+            Linking.openURL(calendly_site);
+          }}
             style={{
               backgroundColor: "#161a1d",
-              width: width * 0.9,
+              width: Dimensions.get("screen").width * 0.9,
               borderRadius: 8,
               paddingVertical: 12,
               justifyContent: "center",
-              alignItems: "center",
+              alignSelf: "center",
               marginVertical: 4,
             }}
           >
-            <Text style={{ color: "#fff", fontSize: 22, fontWeight: "500" }}>
-              Intrested to Fund
+            <Text
+              style={{
+                color: "#fff",
+                fontSize: 22,
+                fontWeight: "500",
+                alignSelf: "center",
+                justifyContent: "center",
+                
+              }}
+            >
+              Interested to Fund
             </Text>
           </Pressable>
         </View>
-        <View>
-          <Text style={{ fontSize: 36, fontWeight: "700" }}>
-            Project Details
+        <View style={{flexDirection:"row",paddingVertical:8}} >
+          <Text style={{fontSize:20,fontWeight:"600",color:"#adb5bd"}} >Tech Stack: </Text>
+          <Text style={{fontSize:20,fontWeight:"600",flex:1}}>{techStack}</Text>
+        </View>
+        <View style={{paddingHorizontal:4,paddingVertical:4}}>
+          <Text style={{ fontSize: 28, fontWeight: "700",paddingVertical:4 }}>
+            Project Details:
           </Text>
-          <Text>
-            {/* {projectDetails} */}
-            hellooo
-          </Text>
-          <Text>
-            byeeee
-            {/* {techStack} */}
-          </Text>
+          <Text style={{fontSize:16}} >{projectDetails}</Text>
         </View>
       </ScrollView>
     </SafeAreaView>

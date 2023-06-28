@@ -9,18 +9,25 @@ const ProjectCard = ({
   shortDescription,
   likeCount,
   projectCategory,
+  projectDetails,
+  techStack,
+  fundingDetails
 }) => {
   const navigation = useNavigation();
   // console.log(fundingDetails);
+  console.log("dataaaaa",fundingDetails);
   return (
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate("ProjectCard", {
+        navigation.navigate("Project", {
           projectImgLink,
           projectName,
           shortDescription,
           likeCount,
           projectCategory,
+          projectDetails,
+          techStack,
+          fundingDetails
         });
       }}
       className="bg-white mr-3 shadow"
@@ -62,7 +69,7 @@ const ProjectCard = ({
           >
             <Text style={{ color: "#adb5bd" }} className="text-green-500">
               {likeCount}
-            </Text>{" "}
+            </Text> {" ⏺ "}
             {projectCategory}
           </Text>
         </View>
@@ -79,6 +86,7 @@ const ProjectCard = ({
           >
             {shortDescription}
           </Text>
+         
         </View>
       </View>
     </TouchableOpacity>

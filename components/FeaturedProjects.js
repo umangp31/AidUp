@@ -5,6 +5,7 @@ import ProjectCard from "./ProjectCard";
 import data from "../data.json";
 import firestore from "@react-native-firebase/firestore";
 
+
 const FeaturedProjects = () => {
   const [topBided, setTopBided] = useState();
   const [topLiked, setTopLiked] = useState();
@@ -79,6 +80,9 @@ const FeaturedProjects = () => {
                 shortDescription={item._data.shortDescription}
                 likeCount={item._data.likeCount}
                 projectCategory={item._data.projectCategory}
+                projectDetails={item._data.projectDetails}
+                fundingDetails={item._data.fundingDetails}
+                techStack={item._data.techStack}
               />
             );
           })}
@@ -125,6 +129,9 @@ const FeaturedProjects = () => {
                 shortDescription={item._data.shortDescription}
                 likeCount={item._data.likeCount}
                 projectCategory={item._data.projectCategory}
+                projectDetails={item._data.projectDetails}
+                fundingDetails={item._data.fundingDetails}
+                techStack={item._data.techStack}
               />
             );
           })}
@@ -171,6 +178,9 @@ const FeaturedProjects = () => {
                 shortDescription={item._data.shortDescription}
                 likeCount={item._data.likeCount}
                 projectCategory={item._data.projectCategory}
+                projectDetails={item._data.projectDetails}
+                fundingDetails={item._data.fundingDetails}
+                techStack={item._data.techStack}
               />
             );
           })}
